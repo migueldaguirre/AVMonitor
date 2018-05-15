@@ -1,15 +1,14 @@
 <h2>Nuevo registro de precio:</h2>
 
-<%= form_for @registro do |f| %>
+<%= simple_form_for @registro do |f| %>
+  <%= f.input :producto, prompt: "Seleccione un producto", require: true, collection: ["Nominee", "Byspirifed", "Grammya","Baikal"] %>
 
-<%= f.label :producto, "Marca del producto" %>
-<%= f.text_field :producto %>
+  <%= f.input :ubicacion, prompt: "Seleccione una zona", require: true,collection: ["Antioquia", "Costa", "Cundi/Boyacá","Llanos","Occidente", "Santanderes","Tolima/Huila"] %>
 
-<%= f.label :ubicacion, "Lugar de toma de precio" %>
-<%= f.text_field :ubicacion %>
+  <%= f.input :nivel, prompt: "Seleecion nivel de venta", require: true, collection: ["Almacén", "Usuario final"] %>
 
-<%= f.label :precio, "Precio en pesos" %>
-<%= f.number_field :precio %>
+  <%= f.input :negociacion, prompt: "Seleccione tipo de negociacion", require: true, collection: ["De contado", "A crédito"] %>
 
-<%= f.submit %>
+  <%= f.input :precio %>
+  <%= f.button :submit, "Enviar registro" %>
 <% end %>

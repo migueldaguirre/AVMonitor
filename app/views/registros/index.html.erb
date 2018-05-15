@@ -18,7 +18,7 @@
     <% usd = registro.precio * 0.00036 %>
     <tr>
       <td><%= link_to "Ver", registro_path(registro)%></td>
-      <td><%= registro.updated_at%></td>
+      <td><%= registro.updated_at.strftime("%d/%m/%Y") %></td>
       <td><%= registro.ubicacion %></td>
       <td><%= registro.producto %></td>
       <td><%= registro.nivel %></td>

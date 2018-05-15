@@ -1,7 +1,12 @@
 <h2>Registro:</h2>
 
+<p><%= @registro.producto %></p>
+<p><%= @registro.ubicacion %></p>
+<p><%= @registro.precio %></p>
+<p><%= @registro.nivel %></p>
+<p><%= @registro.negociacion %></p>
 
-<p><%= @registro.producto %>
-<%= @registro.ubicacion %>
-<%= @registro.precio %></p>
-<div><%= link_to "Volver", registros_path, class: "btn btn-success" %></div>
+<div><%= link_to "Eliminar", registro_path(@registro), method: :delete, class: "btn btn-danger btn-xs", data: {confirm: "¿Está seguro que desea eliminar este registro?"} %></div>
+<hr>
+<div><%= link_to "< Volver", registros_path, class: "btn btn-success btn-xs" %></div>
+

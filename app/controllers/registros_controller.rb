@@ -1,11 +1,12 @@
 class RegistrosController < ApplicationController
+  before_action :set_registro, only: [:show, :edit, :update, :destroy]
+
 
   def index
     @registros =  Registro.all
   end
 
   def show
-    @registro = Registro.find(params[:id])
   end
 
   def new
@@ -18,23 +19,26 @@ class RegistrosController < ApplicationController
   end
 
   def edit
-    @registro = Registro.find(params[:id])
   end
 
   def update
-    @registro = Registro.find(params[:id])
     @registro.update(params[:registro])
     redirect_to registros_path
-
   end
 
   def destroy
+    @registro.destroy
+    redirect_to registros_path
   end
 
   private
 
   def registro_params
     params.require(:registro).permit(:producto, :ubicacion, :precio)
+  end
+
+  def set_registro
+    @registro = Registro.find(params[:id])
   end
 
 end
