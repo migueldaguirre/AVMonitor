@@ -5,6 +5,7 @@ class RegistrosController < ApplicationController
   end
 
   def show
+    @registro = Registro.find(params[:id])
   end
 
   def new
