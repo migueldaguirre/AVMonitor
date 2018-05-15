@@ -3,6 +3,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
+      <th> </th>
       <th>Fecha</th>
       <th>Ubicación.</th>
       <th>Producto</th>
@@ -16,6 +17,7 @@
     <% @registros.each do |registro| %>
     <% usd = registro.precio * 0.00036 %>
     <tr>
+      <td><%= link_to "Ver", registro_path(registro)%></td>
       <td><%= registro.updated_at%></td>
       <td><%= registro.ubicacion %></td>
       <td><%= registro.producto %></td>
