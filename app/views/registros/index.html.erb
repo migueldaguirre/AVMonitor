@@ -3,23 +3,26 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>Ubic.</th>
-      <th>Prod.</th>
+      <th>Fecha</th>
+      <th>Ubicación.</th>
+      <th>Producto</th>
       <th>Nivel</th>
-      <th>Nego.</th>
+      <th>Negocio</th>
       <th>COP</th>
       <th>USD</th>
     </tr>
   </thead>
   <tbody>
     <% @registros.each do |registro| %>
-    <% usd = 2830 %>
+    <% usd = registro.precio * 0.00036 %>
     <tr>
+      <td><%= registro.updated_at%></td>
       <td><%= registro.ubicacion %></td>
       <td><%= registro.producto %></td>
       <td><%= registro.nivel %></td>
       <td><%= registro.negociacion %></td>
-      <td><%= registro.precio %></td>
+      <td>$<%= registro.precio %></td>
+      <td>$<%= usd.to_d.truncate(2).to_f %></td>
     </tr>
     <% end %>
   </tbody>
