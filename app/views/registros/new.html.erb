@@ -1,0 +1,15 @@
+<h2>Nuevo registro de precio:</h2>
+
+<%= form_for @registro do |f| %>
+
+<%= f.label :producto, "Marca del producto" %>
+<%= f.text_field :producto %>
+
+<%= f.label :ubicacion, "Lugar de toma de precio" %>
+<%= f.text_field :ubicacion %>
+
+<%= f.label :precio, "Precio en pesos" %>
+<%= f.number_field :precio %>
+
+<%= f.submit %>
+<% end %>
