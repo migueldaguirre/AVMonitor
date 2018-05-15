@@ -13,13 +13,13 @@
   </thead>
   <tbody>
     <% @registros.each do |registro| %>
+    <% usd = 2830 %>
     <tr>
       <td><%= registro.ubicacion %></td>
       <td><%= registro.producto %></td>
       <td><%= registro.nivel %></td>
       <td><%= registro.negociacion %></td>
       <td><%= registro.precio %></td>
-      <td><%= registro.usd %></td>
     </tr>
     <% end %>
   </tbody>
