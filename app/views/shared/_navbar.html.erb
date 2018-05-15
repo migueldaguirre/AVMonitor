@@ -10,8 +10,9 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Registros", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "+Agregar", "#", class: "navbar-wagon-item navbar-wagon-link btn" %>
+      <%= link_to "Registros", registros_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
+      <%= link_to "+Agregar", new_registro_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
@@ -47,8 +48,8 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Registros</a></li>
-        <li><a href="#">+Agregar</a></li>
+        <li><%= link_to "Registros", registros_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
+        <li><%= link_to "+Agregar", new_registro_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
       </ul>
     </div>
   </div>
