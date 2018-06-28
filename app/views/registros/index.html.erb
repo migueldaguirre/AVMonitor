@@ -7,8 +7,8 @@
       <th>Fecha</th>
       <th>Ubicación.</th>
       <th>Producto</th>
-<!--       <th>Nivel</th>
-      <th>Negocio</th> -->
+      <th>Nivel</th>
+      <th>Negocio</th>
       <th>COP</th>
       <th>USD</th>
     </tr>
@@ -21,8 +21,8 @@
       <td><%= registro.updated_at.strftime("%d/%m/%Y") %></td>
       <td><%= registro.ubicacion %></td>
       <td><%= registro.producto %></td>
-<!--       <td><%= registro.nivel %></td>
-      <td><%= registro.negociacion %></td> -->
+      <td><%= registro.nivel %></td>
+      <td><%= registro.negociacion %></td>
       <td>$<%= registro.precio %></td>
       <td>$<%= usd.to_d.truncate(2).to_f %></td>
     </tr>
