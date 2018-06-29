@@ -16,7 +16,6 @@ class RegistrosController < ApplicationController
   def create
     @registro = Registro.create(registro_params)
     if @registro.save
-
       redirect_to registro_path(@registro)
     else
       render :new
