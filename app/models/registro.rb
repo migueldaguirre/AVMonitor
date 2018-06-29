@@ -3,5 +3,5 @@ class Registro < ApplicationRecord
   validates :producto, presence: true
   validates :ubicacion, presence: true
   validates :negociacion, presence: true
-  # validates :nivel, presence: true
+  validates :nivel, presence: true
 end
