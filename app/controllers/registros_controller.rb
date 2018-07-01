@@ -1,5 +1,6 @@
 class RegistrosController < ApplicationController
   before_action :set_registro, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:create, :update]
 
 
   def index
@@ -15,6 +16,7 @@ class RegistrosController < ApplicationController
 
   def create
     @registro = Registro.create(registro_params)
+    @registro.user = @user
     if @registro.save
       redirect_to registro_path(@registro)
     else
@@ -38,7 +40,11 @@ class RegistrosController < ApplicationController
   private
 
   def registro_params
-    params.require(:registro).permit(:producto, :ubicacion, :precio, :id, :negociacion, :nivel)
+    params.require(:registro).permit(:producto, :ubicacion, :precio, :id, :negociacion, :nivel, :user_id)
+  end
+
+  def set_user
+    @user = current_user
   end
 
   def set_registro

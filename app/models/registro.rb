@@ -4,4 +4,6 @@ class Registro < ApplicationRecord
   validates :ubicacion, presence: true
   validates :negociacion, presence: true
   validates :nivel, presence: true
+
+  belongs_to :user
 end
