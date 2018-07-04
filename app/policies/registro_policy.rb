@@ -18,8 +18,17 @@ class RegistroPolicy < ApplicationPolicy
 
   def update?
     # It just can be modified by its owner
-    record.user == user
+    user_is_owner
+  end
 
+  def destroy?
+    user_is_owner
+  end
+
+private
+
+  def user_is_owner
+    record.user == user
   end
 
 

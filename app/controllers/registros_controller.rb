@@ -24,6 +24,7 @@ class RegistrosController < ApplicationController
 
     if @registro.save
       redirect_to registro_path(@registro)
+      flash[:notice] = "Se ha creado un nuevo registro."
     else
       render :new
     end
@@ -40,6 +41,7 @@ class RegistrosController < ApplicationController
   def destroy
     @registro.destroy
     redirect_to registros_path
+    flash[:alert] = "El registro se ha eliminado."
   end
 
   private

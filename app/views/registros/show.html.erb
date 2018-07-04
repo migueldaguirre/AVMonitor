@@ -7,8 +7,13 @@
 <p>Negociación: <%= @registro.negociacion %></p>
 <p>Autor: <%= @registro.user.name %></p>
 
-
+<% if policy(@registro).destroy? %>
 <div><%= link_to "Eliminar", registro_path(@registro), method: :delete, class: "btn btn-danger btn-xs", data: {confirm: "¿Está seguro que desea eliminar este registro?"} %></div>
+<% end %>
+<hr>
+<% if policy(@registro).edit? %>
+<div><%= link_to "Editar", edit_registro_path(@registro), class: "btn btn-success btn-xs"%></div>
+<% end %>
 <hr>
 <div><%= link_to "< Volver", registros_path, class: "btn btn-success btn-xs" %></div>
 
