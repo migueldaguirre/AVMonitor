@@ -5,6 +5,7 @@ class RegistrosController < ApplicationController
 
   def index
     @registros =  Registro.all
+    @registros = policy_scope(Registro)
   end
 
   def show
@@ -12,13 +13,18 @@ class RegistrosController < ApplicationController
 
   def new
     @registro = Registro.new
+    authorize @registro
   end
 
   def create
-    @registro = Registro.create(registro_params)
+    # @registro = Registro.create(registro_params)
+    @registro = current_user.registros.build(registro_params)
     @registro.user = @user
+    authorize @registro
+
     if @registro.save
       redirect_to registro_path(@registro)
+      flash[:notice] = "Se ha creado un nuevo registro."
     else
       render :new
     end
@@ -35,6 +41,7 @@ class RegistrosController < ApplicationController
   def destroy
     @registro.destroy
     redirect_to registros_path
+    flash[:alert] = "El registro se ha eliminado."
   end
 
   private
@@ -49,6 +56,7 @@ class RegistrosController < ApplicationController
 
   def set_registro
     @registro = Registro.find(params[:id])
+    authorize @registro
   end
 
 end
