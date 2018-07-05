@@ -6,4 +6,5 @@ class Registro < ApplicationRecord
   validates :nivel, presence: true
 
   belongs_to :user
+
 end
