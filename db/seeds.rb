@@ -6,8 +6,19 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Registro.create(ubicacion:"Meta", producto: "Nominee", nivel: "Dist", negociacion: "Cont", precio: 260000)
-Registro.create(ubicacion:"Granada", producto: "Grammya", nivel: "Alma", negociacion: "Cont", precio: 45000)
-Registro.create(ubicacion:"Meta", producto: "Baikal", nivel: "Alma", negociacion: "Cont", precio: 48000)
-Registro.create(ubicacion:"Meta", producto: "Nominee", nivel: "Usua", negociacion: "Cred", precio: 55000)
-Registro.create(ubicacion:"Altillanura", producto: "Byspirifed", nivel: "Usua", negociacion: "Cred", precio: 55000)
+path = Rails.root.join('lib', 'seeds', "glifosato_demo.csv")
+
+CSV.foreach(path, :headers => true, encoding: "UTF-8") do |row|
+
+  t = Producto.new
+  t.ica = row['ica']
+  t.ingrediente = row['ingrediente']
+  t.marca = row['marca']
+  t.empresa = row['empresa']
+  t.concentracion = row['concentracion']
+  t.formulacion = row['formulacion']
+  t.origen = row['origen']
+  t.save
+  puts "#{t.marca} saved"
+end
+
