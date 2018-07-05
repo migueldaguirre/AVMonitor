@@ -1,0 +1,26 @@
+<h1>Producto#index</h1>
+<p>Find me in app/views/producto/index.html.erb</p>
+ <table>
+ <tbody>
+    <thead>
+    <tr>
+      <th>Ingrediente</th>
+      <th>Marca</th>
+      <th>Empresa</th>
+      <th>Concentración</th>
+      <th>Formulación</th>
+      <th>Origen</th>
+    </tr>
+  </thead>
+    <% @productos.each do |producto| %>
+    <tr>
+      <td><%= producto.ingrediente %></td>
+      <td><%= producto.marca %></td>
+      <td><%= producto.empresa %></td>
+      <td><%= producto.concentracion %></td>
+      <td><%= producto.formulacion %></td>
+      <td><%= producto.origen %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
