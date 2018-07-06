@@ -1,39 +1,49 @@
-<h3>Registro: <%= @registro.id %></h3>
-<hr>
-<h4> Producto </h4>
-<p>Ingrediente: <%= @registro.producto.ingrediente %></p>
-<p>Producto: <%= @registro.producto.marca %></p>
-<p>Formulación: <%= @registro.producto.formulacion %></p>
-<p>Concentración: <%= @registro.producto.concentracion %></p>
-<p>Empresa: <%= @registro.producto.empresa %></p>
-<p>Origen: <%= @registro.producto.origen %></p>
-
-<hr>
-<h4> Ubicación </h4>
-<p>Municipio: <%= @registro.municipio %></p>
-<p>Departamento: <%= @registro.departamento %></p>
-
-<hr>
-<h4> Precio </h4>
-<p>Presentación: <%= @registro.presentacion %></p>
-<p>Precio:  <%= @registro.precio %></p>
-<p>Negociación: <%= @registro.negociacion %></p>
-<p>Nivel: <%= @registro.nivel %></p>
-
-<hr>
-<h4> Datos de Registro </h4>
-<p>Autor: <%= @registro.user.name %></p>
-<p>Creado: <%= @registro.created_at.strftime("%d/%m/%Y (%T)") %></p>
-<p>Modificado: <%= @registro.updated_at.strftime("%d/%m/%Y (%T)") %></p>
-
-
-<% if policy(@registro).destroy? %>
-<div><%= link_to "Eliminar", registro_path(@registro), method: :delete, class: "btn btn-danger btn-xs", data: {confirm: "¿Está seguro que desea eliminar este registro?"} %></div>
-<% end %>
-<hr>
+<h3>Registro: <%= @registro.id %>   <%= @registro.created_at.strftime"(%d/%m/%Y)"%></h3>
+<%= link_to "< Mostrar registros", registros_path, class: "btn btn-primary btn-xs" %>
 <% if policy(@registro).edit? %>
-<div><%= link_to "Editar", edit_registro_path(@registro), class: "btn btn-success btn-xs"%></div>
+<%= link_to "Editar", edit_registro_path(@registro), class: "btn btn-info btn-xs"%>
 <% end %>
-<hr>
-<div><%= link_to "< Volver", registros_path, class: "btn btn-success btn-xs" %></div>
+<% if policy(@registro).destroy? %>
+<%= link_to "Eliminar", registro_path(@registro), method: :delete, class: "btn btn-danger btn-xs", data: {confirm: "¿Está seguro que desea eliminar este registro?"} %>
+<% end %>
+
+
+<br></br>
+<h4> Producto </h4>
+<table class="show-table">
+<tr><td>Ingrediente:</td><td class="dato"> <%= @registro.producto.ingrediente %></td></tr>
+<tr><td>Producto:</td><td class="dato"> <%= @registro.producto.marca %></td></tr>
+<tr><td>Formulación:</td><td class="dato"> <%= @registro.producto.formulacion %></td></tr>
+<tr><td>Concentración:</td><td class="dato"> <%= @registro.producto.concentracion %></td></tr>
+<tr><td>Empresa:</td><td class="dato"> <%= @registro.producto.empresa %></td></tr>
+<tr><td>Origen:</td><td class="dato"> <%= @registro.producto.origen %></td></tr>
+</table>
+
+<br></br>
+<h4> Ubicación </h4>
+<table class="show-table">
+<tr><td>Municipio:</td><td class="dato"><%= @registro.municipio %></td></tr>
+<tr><td>Departamento:</td><td class="dato"> <%= @registro.departamento %></td></tr>
+</table>
+<br></br>
+<h4> Precio </h4>
+<table class="show-table">
+<tr><td>Presentación:</td><td class="dato"> <%= @registro.presentacion %></td></tr>
+<tr><td>Precio:</td><td class="dato">  <%= @registro.precio %></td></tr>
+<tr><td>Negociación:</td><td class="dato"> <%= @registro.negociacion %></td></tr>
+<tr><td>Nivel:</td><td class="dato"> <%= @registro.nivel %></td></tr>
+</table>
+
+<br></br>
+<h4> Datos de Registro </h4>
+<table class="show-table">
+<tr><td>Autor:</td><td class="dato"> <%= @registro.user.name %></td></tr>
+<tr><td>Creado:</td><td class="dato"> <%= @registro.created_at.strftime("%d/%m/%Y (%T)") %></td></tr>
+<tr><td>Modificado:</td><td class="dato"> <%= @registro.updated_at.strftime("%d/%m/%Y (%T)") %></td></tr>
+</table>
+<br></br>
+
+
+
+
 

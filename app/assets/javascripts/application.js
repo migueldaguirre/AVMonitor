@@ -1,3 +1,4 @@
 //= require rails-ujs
+//= jquery
 //= require_tree .
-//= require table.js
+//= require index
