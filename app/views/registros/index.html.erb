@@ -4,7 +4,14 @@
 <table class="fold-table table">
   <thead>
     <tr>
-      <th></th><th>Fecha</th><th>Ingr.</th><th>Producto</th><th>Dep.</th><th>Pres.</th><th>COP</th><th>USD</th>
+      <th></th>
+      <th class="hidden-xs">Fecha</th>
+      <th class="hidden-xs">Ingr.</th>
+      <th>Producto</th>
+      <th class="hidden-xs">Dep.</th>
+      <th>Pres.</th>
+      <th>COP</th>
+      <th class="hidden-xs">USD</th>
     </tr>
   </thead>
   <tbody>
@@ -12,13 +19,13 @@
     <% usd = registro.precio * 0.00035 %>
     <tr class="view">
       <td><%= link_to "Ver", registro_path(registro)%></td>
-      <td><%= registro.updated_at.strftime("%d/%m/%Y") %></td>
-      <td><%= Producto.find(registro.producto_id).ingrediente %></td>
+      <td class="hidden-xs"><%= registro.updated_at.strftime("%d/%m/%Y") %></td>
+      <td class="hidden-xs"><%= Producto.find(registro.producto_id).ingrediente %></td>
       <td><%= Producto.find(registro.producto_id).marca %></td>
-      <td><%= registro.departamento %></td>
+      <td class="hidden-xs"><%= registro.departamento %></td>
       <td><%= registro.presentacion %></td>
       <td class="cur"><%= registro.precio %></td>
-      <td class="cur"><%= usd.to_d.truncate(2).to_f %></td>
+      <td class="cur hidden-xs"><%= usd.to_d.truncate(2).to_f %></td>
     </tr>
     <% end %>
     <tr class="fold">

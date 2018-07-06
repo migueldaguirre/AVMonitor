@@ -23,16 +23,16 @@ table.fold-table {
       th:first-child {
         position: relative;
         padding-left:20px;
-        &:before {
-          position: absolute;
-          top:50%; left:5px;
-          width: 9px; height: 16px;
-          margin-top: -8px;
-          font: 16px fontawesome;
-          color: #999;
-          content: "\f0d7";
-          transition: all .3s ease;
-        }
+        // &:before {
+        //   position: absolute;
+        //   top:50%; left:5px;
+        //   width: 9px; height: 16px;
+        //   margin-top: -8px;
+        //   font: 16px fontawesome;
+        //   color: #999;
+        //   content: "\f0d7";
+        //   transition: all .3s ease;
+        // }
       }
       &:nth-child(2n-1) { background: #eee; }
       &:hover { background: #fcfdd1; }
