@@ -20,6 +20,7 @@ gem 'webpacker'
 
 gem 'pundit'
 gem 'devise-i18n'
+gem 'jquery-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

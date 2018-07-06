@@ -1,34 +1,32 @@
+
 <h1>Registros realizados</h1>
 
-
-<table class="table table-sm ">
+<table class="fold-table table">
   <thead>
     <tr>
-      <th> </th>
-      <th>Fecha</th>
-      <th>Municipio</th>
-      <th>Producto</th>
-      <th>Nivel</th>
-      <th>Negocio</th>
-      <th>COP</th>
-      <th>USD</th>
+      <th></th><th>Fecha</th><th>Ingr.</th><th>Producto</th><th>Dep.</th><th>Pres.</th><th>COP</th><th>USD</th>
     </tr>
   </thead>
   <tbody>
     <% @registros.each do |registro| %>
-    <% usd = registro.precio * 0.00036 %>
-    <tr>
+    <% usd = registro.precio * 0.00035 %>
+    <tr class="view">
       <td><%= link_to "Ver", registro_path(registro)%></td>
       <td><%= registro.updated_at.strftime("%d/%m/%Y") %></td>
-      <td><%= registro.municipio %></td>
+      <td><%= Producto.find(registro.producto_id).ingrediente %></td>
       <td><%= Producto.find(registro.producto_id).marca %></td>
-      <td><%= registro.nivel %></td>
-      <td><%= registro.negociacion %></td>
-      <td>$<%= registro.precio %></td>
-      <td>$<%= usd.to_d.truncate(2).to_f %></td>
+      <td><%= registro.departamento %></td>
+      <td><%= registro.presentacion %></td>
+      <td class="cur"><%= registro.precio %></td>
+      <td class="cur"><%= usd.to_d.truncate(2).to_f %></td>
     </tr>
     <% end %>
+    <tr class="fold">
+      <td colspan="7">
+        <div class="fold-content">
+         <p></p>
+        </div>
+      </td>
+    </tr>
   </tbody>
 </table>
-
-<% console %>
