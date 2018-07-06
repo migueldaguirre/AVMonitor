@@ -28,8 +28,10 @@
 <br></br>
 <h4> Precio </h4>
 <table class="show-table">
-<tr><td>Presentación:</td><td class="dato"> <%= @registro.presentacion %></td></tr>
-<tr><td>Precio:</td><td class="dato">  <%= @registro.precio %></td></tr>
+<% usd = @registro.precio * 0.00035 %>
+<tr><td>Presentación:</td><td class="dato"><%= @registro.presentacion %></td></tr>
+<tr><td>Precio (COP):</td><td class="dato">$<%= @registro.precio %></td></tr>
+<tr><td>Precio (USD):</td><td class="dato">$<%= usd.to_d.truncate(2).to_f %></td></tr>
 <tr><td>Negociación:</td><td class="dato"> <%= @registro.negociacion %></td></tr>
 <tr><td>Nivel:</td><td class="dato"> <%= @registro.nivel %></td></tr>
 </table>
@@ -41,6 +43,11 @@
 <tr><td>Creado:</td><td class="dato"> <%= @registro.created_at.strftime("%d/%m/%Y (%T)") %></td></tr>
 <tr><td>Modificado:</td><td class="dato"> <%= @registro.updated_at.strftime("%d/%m/%Y (%T)") %></td></tr>
 </table>
+<% if @registro.comentario.present? %>
+<table class="show-table">
+<tr><td><b>Comentario:</b> <%= @registro.comentario %></td></tr>
+</table>
+<% end %>
 <br></br>
 
 

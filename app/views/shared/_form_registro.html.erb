@@ -1,0 +1,23 @@
+<%= simple_form_for @registro do |f| %>
+
+  <%= f.error_notification %>
+
+  <%= f.label :producto_id %><br>
+  <%= f.collection_select :producto_id,  Producto.all, :id, :marca, require: true, include_blank: 'Seleccione un producto'  %>
+  <br></br>
+
+    <%= f.input :presentacion, prompt: "Seleccione la cantidad de producto", require: true, collection: ["1 litro", "4 litros", "5 litros","20 litros","200 litros"] %>
+
+  <%= f.input :departamento, prompt: "Seleccione una departamento", require: true, collection: ["Antioquia"] %>
+  <%= f.input :municipio, prompt: "Municipio en donde fue tomado el precio", require: true, collection: ["Abejorral", "Abriaquí", "Alejandría", "Amagá", "Amalfi", "Andes", "Angelópolis", "Angostura", "Anorí", "Antioquia", "Anzá", "Apartadó", "Arboletes", "Argelia", "Armenia", "Barbosa", "Bello", "Belmira", "Betania", "Betulia", "Briceño", "Buriticá", "Cáceres", "Caicedo", "Caldas", "Campamento", "Cañasgordas", "Caracolí", "Caramanta", "Carepa", "Carolina del Príncipe", "Caucasia", "Chigorodó", "Cisneros", "Ciudad Bolívar", "Cocorná", "Concepción", "Concordia", "Copacabana", "Dabeiba", "Donmatías", "Ebéjico", "El Bagre", "El Carmen de Viboral", "El Peñol", "El Retiro", "El Santuario", "Entrerríos", "Envigado", "Fredonia", "Frontino", "Giraldo", "Girardota", "Gómez Plata", "Granada", "Guadalupe", "Guarne", "Guatapé", "Heliconia", "Hispania", "Itagüí", "Ituango", "Jardín", "Jericó", "La Ceja", "La Estrella", "La Pintada", "La Unión", "Liborina", "Maceo", "Marinilla", "Medellín", "Montebello", "Murindó", "Mutatá", "Nariño", "Nechí", "Necoclí", "Olaya", "Peque", "Pueblorrico", "Puerto Berrío", "Puerto Nare", "Puerto Triunfo", "Remedios", "Rionegro", "Sabanalarga", "Sabaneta", "Salgar", "San Andrés de Cuerquia", "San Carlos", "San Francisco", "San Jerónimo", "San José de la Montaña", "San Juan de Urabá", "San Luis", "San Pedro de los Milagros", "San Pedro de Urabá", "San Rafael", "San Roque", "San Vicente", "Santa Bárbara", "Santa Rosa de Osos", "Santo Domingo", "Segovia", "Sonsón", "Sopetrán", "Támesis", "Tarazá", "Tarso", "Titiribí", "Toledo", "Turbo", "Uramita", "Urrao", "Valdivia", "Valparaíso", "Vegachí", "Venecia", "Vigía del Fuerte", "Yalí", "Yarumal", "Yolombó", "Yondó", "Zaragoza"] %>
+
+  <%= f.input :nivel, prompt: "Selecione nivel de venta", require: true, collection: ["Almacén", "Usuario final"] %>
+
+  <%= f.input :negociacion,prompt: "Selecione nivel de venta", require: true, collection: ["De contado", "A crédito"] %>
+
+  <%= f.input :precio %>
+
+  <%= f.input :comentario %>
+  <%= f.button :submit, "Enviar registro" %>
+
+<% end %>
