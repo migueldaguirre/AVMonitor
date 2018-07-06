@@ -50,6 +50,7 @@ es:
         last_sign_in_ip: IP del último inicio
         locked_at: Fecha de bloqueo
         password: Contraseña
+        name: Nombre y apellido
         password_confirmation: Confirmación de la contraseña
         remember_created_at: Fecha de 'Recordarme'
         remember_me: Recordarme
@@ -59,6 +60,8 @@ es:
         unconfirmed_email: Email no confirmado
         unlock_token: Código de desbloqueo
         updated_at: Actualizado en
+        minimum_password_length: "- No incluye suficientes caracteres"
+        too_short: "Constraseña muy corta"
     models:
       user: Usuario
   devise:

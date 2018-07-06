@@ -19,19 +19,13 @@
         <div class="dropdown">
           <%= image_tag "avatar.jpg", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Perfil") %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-cog"></i>  <%= t(".settings", default: "Configuración") %>
-              <% end %>
+
+            <li style="margin-left: 20px">
+            <%= current_user.name%>
             </li>
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Salir") %>
+                <i class="X"></i>  <%= t(".sign_out", default: "Salir") %>
               <% end %>
             </li>
           </ul>
