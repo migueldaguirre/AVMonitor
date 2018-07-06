@@ -3,7 +3,7 @@
   <%= f.error_notification %>
 
   <%= f.label :producto_id %><br>
-  <%= f.collection_select :producto_id,  Producto.all, :id, :marca, require: true, include_blank: 'Seleccione un producto'  %>
+  <%= f.collection_select :producto_id, Producto.order("marca ASC"), :id, :marca, require: true, include_blank: 'Seleccione un producto' %>
   <br></br>
 
     <%= f.input :presentacion, prompt: "Seleccione la cantidad de producto", require: true, collection: ["1 litro", "4 litros", "5 litros","20 litros","200 litros"] %>
