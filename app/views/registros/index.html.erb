@@ -1,5 +1,6 @@
 <h1>Registros realizados</h1>
 
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -20,7 +21,7 @@
       <td><%= link_to "Ver", registro_path(registro)%></td>
       <td><%= registro.updated_at.strftime("%d/%m/%Y") %></td>
       <td><%= registro.ubicacion %></td>
-      <td><%= registro.producto %></td>
+      <td><%= Producto.find(registro.producto_id).marca %></td>
       <td><%= registro.nivel %></td>
       <td><%= registro.negociacion %></td>
       <td>$<%= registro.precio %></td>
@@ -29,3 +30,5 @@
     <% end %>
   </tbody>
 </table>
+
+<% console %>
