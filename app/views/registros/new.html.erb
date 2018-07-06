@@ -3,17 +3,19 @@
 
 <%= simple_form_for @registro do |f| %>
 
+  <%= f.error_notification %>
 
   <%= f.label :producto_id %><br>
-  <%= f.collection_select :producto_id,  Producto.all, :id, :marca, include_blank: 'Seleccione un producto'  %>
-  <br>
+  <%= f.collection_select :producto_id,  Producto.all, :id, :marca, require: true, include_blank: 'Seleccione un producto'  %>
+  <br></br>
 
   <%= f.input :ubicacion, prompt: "Seleccione una zona", require: true, collection: ["Antioquia", "Costa", "Cundi/Boyacá","Llanos","Occidente", "Santanderes","Tolima/Huila"] %>
 
-  <%= f.input :nivel, prompt: "Seleecion nivel de venta", require: true, collection: ["Almacén", "Usuario final"] %>
+  <%= f.input :nivel, prompt: "Selecione nivel de venta", require: true, collection: ["Almacén", "Usuario final"] %>
 
-  <%= f.input :negociacion, prompt: "Seleccione tipo de negociacion", require: true, collection: ["De contado", "A crédito"] %>
+  <%= f.input :negociacion,prompt: "Selecione nivel de venta", require: true, collection: ["De contado", "A crédito"] %>
 
-  <%= f.input :precio %>
+  <%= f.input :precio,  as: :currency %>
   <%= f.button :submit, "Enviar registro" %>
+
 <% end %>
