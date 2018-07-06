@@ -5,6 +5,7 @@ class RegistrosController < ApplicationController
 
   def index
     @registros =  Registro.all
+    @productos = Producto.all
     @registros = policy_scope(Registro)
   end
 
@@ -47,7 +48,7 @@ class RegistrosController < ApplicationController
   private
 
   def registro_params
-    params.require(:registro).permit(:producto, :ubicacion, :precio, :id, :negociacion, :nivel, :user_id)
+    params.require(:registro).permit(:producto_id, :ubicacion, :precio, :id, :negociacion, :nivel, :user_id)
   end
 
   def set_user

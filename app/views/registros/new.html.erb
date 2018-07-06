@@ -1,9 +1,14 @@
 <h2>Nuevo registro de precio:</h2>
 
-<%= simple_form_for @registro do |f| %>
-  <%= f.input :producto, prompt: "Seleccione un producto", require: true, collection: ["Nominee", "Byspirifed", "Grammya","Baikal"] %>
 
-  <%= f.input :ubicacion, prompt: "Seleccione una zona", require: true,collection: ["Antioquia", "Costa", "Cundi/Boyacá","Llanos","Occidente", "Santanderes","Tolima/Huila"] %>
+<%= simple_form_for @registro do |f| %>
+
+
+  <%= f.label :producto_id %><br>
+  <%= f.collection_select :producto_id,  Producto.all, :id, :marca, include_blank: 'Seleccione un producto'  %>
+  <br>
+
+  <%= f.input :ubicacion, prompt: "Seleccione una zona", require: true, collection: ["Antioquia", "Costa", "Cundi/Boyacá","Llanos","Occidente", "Santanderes","Tolima/Huila"] %>
 
   <%= f.input :nivel, prompt: "Seleecion nivel de venta", require: true, collection: ["Almacén", "Usuario final"] %>
 
