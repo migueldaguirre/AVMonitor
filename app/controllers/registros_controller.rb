@@ -48,7 +48,7 @@ class RegistrosController < ApplicationController
   private
 
   def registro_params
-    params.require(:registro).permit(:producto_id, :ubicacion, :precio, :id, :negociacion, :nivel, :user_id)
+    params.require(:registro).permit(:producto_id, :precio, :id, :negociacion, :nivel, :user_id, :municipio, :departamento, :presentacion)
   end
 
   def set_user

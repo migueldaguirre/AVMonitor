@@ -1,11 +1,31 @@
 <h3>Registro: <%= @registro.id %></h3>
-
+<hr>
+<h4> Producto </h4>
+<p>Ingrediente: <%= @registro.producto.ingrediente %></p>
 <p>Producto: <%= @registro.producto.marca %></p>
-<p>Nivel: <%= @registro.nivel %></p>
-<p>Ubicación: <%= @registro.ubicacion %></p>
+<p>Formulación: <%= @registro.producto.formulacion %></p>
+<p>Concentración: <%= @registro.producto.concentracion %></p>
+<p>Empresa: <%= @registro.producto.empresa %></p>
+<p>Origen: <%= @registro.producto.origen %></p>
+
+<hr>
+<h4> Ubicación </h4>
+<p>Municipio: <%= @registro.municipio %></p>
+<p>Departamento: <%= @registro.departamento %></p>
+
+<hr>
+<h4> Precio </h4>
+<p>Presentación: <%= @registro.presentacion %></p>
 <p>Precio:  <%= @registro.precio %></p>
 <p>Negociación: <%= @registro.negociacion %></p>
+<p>Nivel: <%= @registro.nivel %></p>
+
+<hr>
+<h4> Datos de Registro </h4>
 <p>Autor: <%= @registro.user.name %></p>
+<p>Creado: <%= @registro.created_at.strftime("%d/%m/%Y (%T)") %></p>
+<p>Modificado: <%= @registro.updated_at.strftime("%d/%m/%Y (%T)") %></p>
+
 
 <% if policy(@registro).destroy? %>
 <div><%= link_to "Eliminar", registro_path(@registro), method: :delete, class: "btn btn-danger btn-xs", data: {confirm: "¿Está seguro que desea eliminar este registro?"} %></div>
