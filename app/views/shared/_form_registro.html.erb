@@ -2,6 +2,11 @@
 
   <%= f.error_notification %>
 
+  <br>
+  <div style="font-weight: light;" <%= f.label :Mostrar_productos_por_ingrediente_activo %>:
+  <%= f.select :producto_id, ["GLIFOSATO"]%>
+  <br></br>
+
   <%= f.label :producto_id %><br>
   <%= f.collection_select :producto_id, Producto.order("marca ASC"), :id, :marca, require: true, include_blank: 'Seleccione un producto' %>
   <br></br>
