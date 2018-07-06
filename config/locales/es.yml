@@ -50,7 +50,7 @@ es:
         last_sign_in_ip: IP del último inicio
         locked_at: Fecha de bloqueo
         password: Contraseña
-        name: Nombre
+        name: Nombre y apellido
         password_confirmation: Confirmación de la contraseña
         remember_created_at: Fecha de 'Recordarme'
         remember_me: Recordarme

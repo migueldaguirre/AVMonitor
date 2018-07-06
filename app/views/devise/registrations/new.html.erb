@@ -4,7 +4,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :name, required: true, autofocus: true,  error: "Por favor verificar" %>
+    <%= f.input :name, required: true, autofocus: true,  error: "Incluya su nombre y apellido" %>
     <%= f.input :email, required: true, autofocus: true, error: "Email inválido (ya existe o no corresponde al formato)" %>
     <%= f.input :password, required: true, error: "Verifique que contenga suficientes caracteres", hint: (t('devise.shared.minimum_password_length', count: @minimum_password_length) if @minimum_password_length) %>
     <%= f.input :password_confirmation, required: true, error: "Verifique la contraseña" %>
