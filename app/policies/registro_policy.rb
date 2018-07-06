@@ -1,13 +1,21 @@
 class RegistroPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.where(user: user)
+      if user.admin?
+        scope.all
+        else
+        scope.where(user: user)
+      end
     end
   end
 
+  def index?
+    true
+  end
 
   def show?
     record.user == user
+    user_is_owner_or_admin?
   end
 
 

@@ -6,6 +6,7 @@ class RegistrosController < ApplicationController
   def index
     @registros =  Registro.all
     @productos = Producto.all
+    authorize @registros
     @registros = policy_scope(Registro)
   end
 
