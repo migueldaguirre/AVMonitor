@@ -35,8 +35,14 @@ class RegistrosController < ApplicationController
   end
 
   def update
-    @registro.update(params[:registro])
-    redirect_to registros_path
+    # @registro.update(params[:registro])
+    # redirect_to registros_path
+
+    if @registro.update(registro_params)
+      redirect_to registro_path(@registro)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -48,7 +54,7 @@ class RegistrosController < ApplicationController
   private
 
   def registro_params
-    params.require(:registro).permit(:producto_id, :precio, :id, :negociacion, :nivel, :user_id, :municipio, :departamento, :presentacion)
+    params.require(:registro).permit(:producto_id, :precio, :id, :negociacion, :nivel, :user_id, :municipio, :departamento, :presentacion, :comentario)
   end
 
   def set_user
