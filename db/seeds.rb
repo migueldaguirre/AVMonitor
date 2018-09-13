@@ -6,10 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-path = Rails.root.join('lib', 'seeds', "glifosato_demo.csv")
+path = Rails.root.join('lib', 'seeds', "productos_ica.csv")
+
+puts "Creando productos (Lista ICA)"
 
 CSV.foreach(path, :headers => true, encoding: "UTF-8") do |row|
-
   t = Producto.new
   t.ica = row['ica']
   t.ingrediente = row['ingrediente']
@@ -18,7 +19,7 @@ CSV.foreach(path, :headers => true, encoding: "UTF-8") do |row|
   t.concentracion = row['concentracion']
   t.formulacion = row['formulacion']
   t.origen = row['origen']
-  t.save
+  t.save!
   puts "#{t.marca} saved"
 end
 
