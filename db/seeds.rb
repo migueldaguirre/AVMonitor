@@ -8,6 +8,10 @@
 
 path = Rails.root.join('lib', 'seeds', "productos_ica.csv")
 
+
+puts "Reiniciando base de datos de productos..."
+Producto.destroy_all
+
 puts "Creando productos (Lista ICA)"
 
 CSV.foreach(path, :headers => true, encoding: "UTF-8") do |row|
@@ -22,4 +26,6 @@ CSV.foreach(path, :headers => true, encoding: "UTF-8") do |row|
   t.save!
   puts "#{t.marca} saved"
 end
+
+puts "Productos creados en la base de datos"
 
