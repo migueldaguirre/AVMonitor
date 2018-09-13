@@ -8,8 +8,9 @@
 
 path = Rails.root.join('lib', 'seeds', "productos_ica.csv")
 
-CSV.foreach(path, :headers => true, encoding: "UTF-8") do |row|
+puts "Creando productos (Lista ICA)"
 
+CSV.foreach(path, :headers => true, encoding: "UTF-8") do |row|
   t = Producto.new
   t.ica = row['ica']
   t.ingrediente = row['ingrediente']
@@ -18,7 +19,7 @@ CSV.foreach(path, :headers => true, encoding: "UTF-8") do |row|
   t.concentracion = row['concentracion']
   t.formulacion = row['formulacion']
   t.origen = row['origen']
-  t.save
+  t.save!
   puts "#{t.marca} saved"
 end
 
