@@ -10,6 +10,12 @@ gem 'puma'
 gem 'rails', '5.1.6'
 gem 'redis'
 
+# Export data to excel
+gem 'rubyzip', '= 1.0.0'
+gem 'axlsx', '= 2.0.1'
+gem 'axlsx_rails'
+# --------------------
+
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
 gem 'font-awesome-sass', '~> 5.0.9'
