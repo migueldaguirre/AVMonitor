@@ -8,6 +8,12 @@ class RegistrosController < ApplicationController
     @productos = Producto.all
     authorize @registros
     @registros = policy_scope(Registro)
+
+    respond_to do |format|
+    format.html
+    format.xlsx
+    end
+
   end
 
   def show
