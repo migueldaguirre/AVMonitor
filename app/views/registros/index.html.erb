@@ -1,7 +1,8 @@
 
 <h1>Registros realizados</h1>
 
-<%= link_to "Exportar registros", registros_path(format: "xlsx") %>
+<%= link_to "Exportar registros", registros_path(format: "xlsx") if current_user.admin? %>
+
 
 <table class="fold-table table">
   <thead>
