@@ -1,0 +1,2 @@
+class MunicipioController < ApplicationController
+end

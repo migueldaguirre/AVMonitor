@@ -24,8 +24,27 @@ CSV.foreach(path, :headers => true, encoding: "UTF-8") do |row|
   t.formulacion = row['formulacion']
   t.origen = row['origen']
   t.save!
-  puts "#{t.marca} saved"
+  # puts "#{t.marca} saved"
 end
 
 puts "Productos creados en la base de datos"
 
+
+require 'soda/client'
+
+puts "Consultando API de Departamentos de Colombia"
+
+client = SODA::Client.new({:domain => "www.datos.gov.co", :app_token => "AUTH_DATOS_ABIERTOS"})
+
+results = client.get("p95u-vi7k", :$limit => 5000)
+
+
+puts "Se obtuvo #{results.count} resultados (lista de municipios)"
+results.each do |k, v|
+  m = Municipio.new
+  m.cod_departamento = "#{k.c_digo_dane_del_departamento}"
+  m.departamento = "#{k.departamento}"
+  m.cod_municipio = "#{k.c_digo_dane_del_municipio}"
+  m.nombre_municipio = "#{k.municipio}"
+  m.save!
+end
