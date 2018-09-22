@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180921214008) do
+ActiveRecord::Schema.define(version: 20180922060402) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,9 +48,9 @@ ActiveRecord::Schema.define(version: 20180921214008) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.bigint "producto_id"
-    t.string "municipio"
-    t.string "departamento"
     t.string "presentacion"
+    t.bigint "municipio_id"
+    t.index ["municipio_id"], name: "index_registros_on_municipio_id"
     t.index ["producto_id"], name: "index_registros_on_producto_id"
     t.index ["user_id"], name: "index_registros_on_user_id"
   end
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 20180921214008) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "registros", "municipios"
   add_foreign_key "registros", "productos"
   add_foreign_key "registros", "users"
 end
