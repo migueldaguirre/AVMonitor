@@ -1,6 +1,6 @@
+//= require_self
 //= require rails-ujs
-//= jquery
-//= require_tree .
 //= require index
 //= require jquery
-//= require jquery_ujs
+//= require select2-full
+//= require_tree .

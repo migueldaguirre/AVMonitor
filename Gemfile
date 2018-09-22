@@ -16,11 +16,13 @@ gem 'axlsx', '= 2.0.1'
 gem 'axlsx_rails'
 # --------------------
 
-
 # APIs
 gem 'soda-ruby', :require => 'soda'
 # -----
 
+# Autocomplete
+gem "select2-rails"
+#----------------
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
