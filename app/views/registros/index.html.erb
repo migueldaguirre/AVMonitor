@@ -25,7 +25,7 @@
       <td class="hidden-xs"><%= registro.updated_at.strftime("%d/%m/%Y") %></td>
       <td class="hidden-xs"><%= Producto.find(registro.producto_id).ingrediente %></td>
       <td><%= Producto.find(registro.producto_id).marca %></td>
-      <td class="hidden-xs"><%= registro.departamento %></td>
+      <td><%= Municipio.find(registro.municipio_id).departamento %></td>
       <td><%= registro.presentacion %></td>
       <td class="cur"><%= registro.precio %></td>
       <td class="cur hidden-xs"><%= usd.to_d.truncate(2).to_f %></td>

@@ -6,6 +6,7 @@ class RegistrosController < ApplicationController
   def index
     @registros =  Registro.all
     @productos = Producto.all
+    @municipios = Municipio.all
     authorize @registros
     @registros = policy_scope(Registro)
 
@@ -25,7 +26,7 @@ class RegistrosController < ApplicationController
   end
 
   def create
-    # @registro = Registro.create(registro_params)
+    @registro = Registro.create(registro_params)
     @registro = current_user.registros.build(registro_params)
     @registro.user = @user
     authorize @registro
@@ -61,7 +62,7 @@ class RegistrosController < ApplicationController
   private
 
   def registro_params
-    params.require(:registro).permit(:producto_id, :precio, :id, :negociacion, :nivel, :user_id, :municipio, :departamento, :presentacion, :comentario)
+    params.require(:registro).permit(:producto_id, :municipio_id, :precio, :id, :negociacion, :nivel, :user_id, :presentacion, :comentario)
   end
 
   def set_user
