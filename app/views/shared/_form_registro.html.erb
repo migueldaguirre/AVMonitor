@@ -20,7 +20,7 @@ window.alert("sometext");
     <%= f.input :presentacion, prompt: "Seleccione la cantidad de producto", require: true, collection: ["10g", "15g", "20g","50g","75g", "100g", "120g", "125g","150g","200g","250g","375g","400g","500g","750g", "800g","954g","1kg","5kg","10kg","12kg","20kg","25kg","80kg","100kg","500kg","100L", "500L","200L","100L","60L","50L","20L","10L","5L","4L","1L","750ml","500ml","250ml","200ml","150ml", "125ml", "Unidad"] %>
 
   <%= f.label :municipio_id %><br>
-  <%= select_tag 'municipio_id', options_from_collection_for_select(
+  <%= f.select 'municipio_id', options_from_collection_for_select(
       Municipio.all.map { |mun| mun }.sort_by { |munsort| munsort.nombre_municipio },:id, :municipio_departamento), class: 'select2', include_blank: 'Seleccione un municipio', require: true %>
 
 
