@@ -1,6 +1,6 @@
 class ProductoController < ApplicationController
 before_action :set_producto, only: [:index]
-
+respond_to :html, :json
 
   def index
     @productos =  Producto.all

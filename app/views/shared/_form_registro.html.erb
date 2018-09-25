@@ -4,8 +4,6 @@ window.alert("sometext");
   </script>
 <% end %>
 
-
-
 <%= simple_form_for @registro do |f| %>
 
   <%= f.error_notification %>
@@ -22,7 +20,9 @@ window.alert("sometext");
     <%= f.input :presentacion, prompt: "Seleccione la cantidad de producto", require: true, collection: ["10g", "15g", "20g","50g","75g", "100g", "120g", "125g","150g","200g","250g","375g","400g","500g","750g", "800g","954g","1kg","5kg","10kg","12kg","20kg","25kg","80kg","100kg","500kg","100L", "500L","200L","100L","60L","50L","20L","10L","5L","4L","1L","750ml","500ml","250ml","200ml","150ml", "125ml", "Unidad"] %>
 
   <%= f.label :municipio_id %><br>
-  <%= f.collection_select :municipio_id, Municipio.order("nombre_municipio ASC"), :id, :municipio_departamento, require: false, include_blank: 'Seleccione un Municipio' %>
+  <%= select_tag 'municipio_id', options_from_collection_for_select(
+      Municipio.all.map { |mun| mun }.sort_by { |munsort| munsort.nombre_municipio },:id, :municipio_departamento), class: 'select2', include_blank: 'Seleccione un municipio', require: true %>
+
 
   <%#= f.input :municipio, prompt: "Municipio en donde fue tomado el precio", require: true, collection: ["Abejorral", "Abriaquí", "Alejandría", "Amagá", "Amalfi", "Andes", "Angelópolis", "Angostura", "Anorí", "Antioquia", "Anzá", "Apartadó", "Arboletes", "Argelia", "Armenia", "Barbosa", "Bello", "Belmira", "Betania", "Betulia", "Briceño", "Buriticá", "Cáceres", "Caicedo", "Caldas", "Campamento", "Cañasgordas", "Caracolí", "Caramanta", "Carepa", "Carolina del Príncipe", "Caucasia", "Chigorodó", "Cisneros", "Ciudad Bolívar", "Cocorná", "Concepción", "Concordia", "Copacabana", "Dabeiba", "Donmatías", "Ebéjico", "El Bagre", "El Carmen de Viboral", "El Peñol", "El Retiro", "El Santuario", "Entrerríos", "Envigado", "Fredonia", "Frontino", "Giraldo", "Girardota", "Gómez Plata", "Granada", "Guadalupe", "Guarne", "Guatapé", "Heliconia", "Hispania", "Itagüí", "Ituango", "Jardín", "Jericó", "La Ceja", "La Estrella", "La Pintada", "La Unión", "Liborina", "Maceo", "Marinilla", "Medellín", "Montebello", "Murindó", "Mutatá", "Nariño", "Nechí", "Necoclí", "Olaya", "Peque", "Pueblorrico", "Puerto Berrío", "Puerto Nare", "Puerto Triunfo", "Remedios", "Rionegro", "Sabanalarga", "Sabaneta", "Salgar", "San Andrés de Cuerquia", "San Carlos", "San Francisco", "San Jerónimo", "San José de la Montaña", "San Juan de Urabá", "San Luis", "San Pedro de los Milagros", "San Pedro de Urabá", "San Rafael", "San Roque", "San Vicente", "Santa Bárbara", "Santa Rosa de Osos", "Santo Domingo", "Segovia", "Sonsón", "Sopetrán", "Támesis", "Tarazá", "Tarso", "Titiribí", "Toledo", "Turbo", "Uramita", "Urrao", "Valdivia", "Valparaíso", "Vegachí", "Venecia", "Vigía del Fuerte", "Yalí", "Yarumal", "Yolombó", "Yondó", "Zaragoza"] %>
 
@@ -36,3 +36,11 @@ window.alert("sometext");
   <%= f.button :submit, "Enviar registro" %>
 
 <% end %>
+
+
+
+
+
+
+
+
