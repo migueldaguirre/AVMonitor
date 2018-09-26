@@ -6,7 +6,6 @@ class Registro < ApplicationRecord
   # validates :municipio
   # validates :presentacion, presence: true
 
-
   belongs_to :user
   belongs_to :producto
   belongs_to :municipio
