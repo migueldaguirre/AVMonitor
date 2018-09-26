@@ -15,6 +15,8 @@ module AVMonitor
       generate.test_framework  :test_unit, fixture: false
     end
 
+    config.time_zone = 'America/Bogota'
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
     config.i18n.default_locale = :es
