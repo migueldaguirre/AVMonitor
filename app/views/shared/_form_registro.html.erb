@@ -11,7 +11,7 @@ window.alert("sometext");
 
 
 <%= f.label :producto_id %><br>
-<%= f.hidden_field :producto_id, value: "44066" %>
+<%= f.hidden_field :producto_id, value: "3" %>
 <%= select_tag :prod_id, options_from_collection_for_select(
       Producto.all.map { |pro| pro }.sort_by { |prosort| prosort.ica },:id, :marca), class: 'select2', include_blank: 'Seleccione un producto', as: :select, id: 'prod' %>
       <br><br>
