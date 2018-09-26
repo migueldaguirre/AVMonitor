@@ -21,7 +21,7 @@
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
 
             <li style="margin-left: 20px">
-            <%= current_user.name%>
+            <%= current_user.name.titleize %>
             </li>
             <li>
             <%= link_to "Cambiar contraseña", edit_user_registration_path %>
@@ -46,7 +46,7 @@
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
         <% if user_signed_in? %>
-        <li>&nbsp&nbsp&nbsp<%= " #{current_user.name}"%></li>
+        <li>&nbsp&nbsp&nbsp<%= " #{current_user.name.titleize}"%></li>
         <li><%= link_to "Ver registros", registros_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
         <li><%= link_to "+Agregar registro", new_registro_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
           <li>
