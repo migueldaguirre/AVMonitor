@@ -18,6 +18,7 @@ class RegistrosController < ApplicationController
   end
 
   def show
+    # @registro.municipio = @munip_id_select2
   end
 
   def new
@@ -30,8 +31,10 @@ class RegistrosController < ApplicationController
     @registro = current_user.registros.build(registro_params)
     @registro.user = @user
     authorize @registro
-
     if @registro.save
+      @munip_id_select2 = params[:munip_id]
+      @registro.municipio = Municipio.find_by_id(@munip_id_select2)
+      @registro.save
       redirect_to registro_path(@registro)
       flash[:notice] = "Se ha creado un nuevo registro."
     else
@@ -62,7 +65,8 @@ class RegistrosController < ApplicationController
   private
 
   def registro_params
-    params.require(:registro).permit(:producto_id, :municipio_id, :precio, :id, :negociacion, :nivel, :user_id, :presentacion, :comentario)
+    params.require(:registro).permit(:producto_id, :municipio_id, :precio, :id, :negociacion, :nivel, :user_id, :presentacion, :comentario, :munip_id)
+    # params[:municipio_id] = params[:munip_id]
   end
 
   def set_user

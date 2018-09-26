@@ -3,7 +3,7 @@ class Registro < ApplicationRecord
   validates :producto, presence: true
   validates :negociacion, presence: true
   validates :nivel, presence: true
-  validates :municipio, presence: true
+  # validates :municipio, presence: false
   validates :presentacion, presence: true
 
 
