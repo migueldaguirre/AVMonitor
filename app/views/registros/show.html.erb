@@ -40,6 +40,9 @@
 <h4> Datos de Registro </h4>
 <table class="show-table">
 <tr><td>Autor:</td><td class="dato"> <%= @registro.user.name %></td></tr>
+<tr><td>Zona:</td><td class="dato"> <%= @registro.user.zona %></td></tr>
+<tr><td>Telefono:</td><td class="dato"> <%= @registro.user.telefono %></td></tr>
+<tr><td>Cargo:</td><td class="dato"> <%= @registro.user.role  %></td></tr>
 <tr><td>Creado:</td><td class="dato"> <%= @registro.created_at.strftime("%d/%m/%Y (%T)") %></td></tr>
 <tr><td>Modificado:</td><td class="dato"> <%= @registro.updated_at.strftime("%d/%m/%Y (%T)") %></td></tr>
 </table>

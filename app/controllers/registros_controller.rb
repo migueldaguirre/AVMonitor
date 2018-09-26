@@ -1,6 +1,6 @@
 class RegistrosController < ApplicationController
   before_action :set_registro, only: [:show, :edit, :update, :destroy]
-  before_action :set_user, only: [:create, :update]
+  before_action :set_user, only: [:create, :update, :new]
 
 
   def index
@@ -37,7 +37,6 @@ class RegistrosController < ApplicationController
       @registro.municipio = Municipio.find_by_id(@munip_id_select2)
       @prod_id_select2 = params[:prod_id]
       @registro.producto = Producto.find_by_id(@prod_id_select2)
-
       @registro.save
       redirect_to registro_path(@registro)
       flash[:notice] = "Se ha creado un nuevo registro."
