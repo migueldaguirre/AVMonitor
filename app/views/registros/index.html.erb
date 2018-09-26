@@ -19,7 +19,7 @@
   </thead>
   <tbody>
     <% @registros.each do |registro| %>
-    <% usd = registro.precio * 0.00035 %>
+    <% usd = registro.precio * 0.00033 %>
     <tr class="view">
       <td><%= link_to "Ver", registro_path(registro)%></td>
       <td class="hidden-xs"><%= registro.updated_at.strftime("%d/%m/%Y") %></td>
