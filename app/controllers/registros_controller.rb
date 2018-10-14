@@ -2,6 +2,9 @@ class RegistrosController < ApplicationController
   before_action :set_registro, only: [:show, :edit, :update, :destroy]
   before_action :set_user, only: [:create, :update, :new]
 
+ def validate!
+    errors.add(:precio, :blank, message: "Se debe incluir el precio") if precio.nil?
+  end
 
   def index
     @registros =  Registro.all
@@ -18,12 +21,13 @@ class RegistrosController < ApplicationController
   end
 
   def show
-    # @registro.municipio = @munip_id_select2
   end
 
   def new
     @registro = Registro.new
     authorize @registro
+    @producto_default = "1"
+    @municipio_default = "1"
   end
 
   def create
@@ -31,29 +35,63 @@ class RegistrosController < ApplicationController
     @registro = current_user.registros.build(registro_params)
     @registro.user = @user
     authorize @registro
+    @producto_default = "1"
+    @municipio_default = "1"
 
     if @registro.save
       @munip_id_select2 = params[:munip_id]
       @registro.municipio = Municipio.find_by_id(@munip_id_select2)
       @prod_id_select2 = params[:prod_id]
       @registro.producto = Producto.find_by_id(@prod_id_select2)
+
+      if params[:munip_id] == ""
+            params[:munip_id] = @municipio_default
+          @registro.municipio = Municipio.find_by_id(params[:munip_id])
+      end
+
+      if params[:prod_id] == ""
+          params[:prod_id] = @producto_default
+          @registro.producto = Producto.find_by_id(params[:prod_id])
+      end
+
       @registro.save
       redirect_to registro_path(@registro)
       flash[:notice] = "Se ha creado un nuevo registro."
     else
+      @munip_id_select2 = params[:munip_id]
+      @prod_id_select2 = params[:prod_id]
       render :new
     end
   end
 
   def edit
+      @producto_default = @registro.producto_id
+      @municipio_default = @registro.municipio_id
   end
 
   def update
-    # @registro.update(params[:registro])
-    # redirect_to registros_path
-
     if @registro.update(registro_params)
+      @producto_default = @registro.producto_id
+      @municipio_default = @registro.municipio_id
+      @precio_default = @registro.precio
+      @munip_id_select2 = params[:munip_id]
+      @registro.municipio = Municipio.find_by_id(@munip_id_select2)
+      @prod_id_select2 = params[:prod_id]
+      @registro.producto = Producto.find_by_id(@prod_id_select2)
+
+      if params[:munip_id] == ""
+            params[:munip_id] = @municipio_default
+          @registro.municipio = Municipio.find_by_id(params[:munip_id])
+      end
+      if params[:prod_id] == ""
+          params[:prod_id] = @producto_default
+          @registro.producto = Producto.find_by_id(params[:prod_id])
+      end
+
+
+      @registro.save
       redirect_to registro_path(@registro)
+      flash[:notice] = "El registro ha sido editado."
     else
       render :edit
     end

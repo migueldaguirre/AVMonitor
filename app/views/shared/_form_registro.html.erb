@@ -1,7 +1,12 @@
 <%= content_for(:after_js) do %>
-<script>
-window.alert("sometext");
-  </script>
+
+<% end %>
+
+
+
+<p>Registro existente: <%= @producto_default %></p>
+<p>Registro existente: <%= @municipio_default %></p>
+<% unless @registro.id.blank? %>
 <% end %>
 
 
@@ -11,16 +16,16 @@ window.alert("sometext");
 
 
 <%= f.label :producto_id %><br>
-<%= f.hidden_field :producto_id, value: "3" %>
+<%= f.hidden_field :producto_id, value: "#{@producto_default}" %>
 <%= select_tag :prod_id, options_from_collection_for_select(
-      Producto.all.map { |pro| pro }.sort_by { |prosort| prosort.ica },:id, :marca), class: 'select2', include_blank: 'Seleccione un producto', as: :select, id: 'prod' %>
+      Producto.all.map { |pro| pro }.sort_by { |prosort| prosort.ica },:id, :marca), class: 'select2', as: :select, id: 'prod', include_blank: "#{Producto.find_by_id(@producto_default).marca}"%>
       <br><br>
 
 
 <%= f.label :municipio_id %><br>
-<%= f.hidden_field :municipio_id, value: "1" %>
+<%= f.hidden_field :municipio_id, value: "#{@municipio_default}" %>
 <%= select_tag :munip_id, options_from_collection_for_select(
-      Municipio.all.map { |mun| mun }.sort_by { |munsort| munsort.nombre_municipio },:id, :municipio_departamento), class: 'select2', include_blank: 'Seleccione un municipio', as: :select, id: 'munip' %>
+      Municipio.all.map { |mun| mun }.sort_by { |munsort| munsort.nombre_municipio },:id, :municipio_departamento), class: 'select2', include_blank: "#{Municipio.find_by_id(@municipio_default).municipio_departamento}", as: :select, id: 'munip' %>
 
       <br><br>
 
