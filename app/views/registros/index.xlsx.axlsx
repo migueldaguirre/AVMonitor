@@ -2,10 +2,11 @@ wb = xlsx_package.workbook
 
 wb.add_worksheet(name: "Registros") do |sheet|
   # this is the head row of your spreadsheet
-  sheet.add_row %w(PRODUCTO NIVEL NEGOCIACION PRECIO)
+  sheet.add_row %w(DEPARTAMENTO MUNICIPIO INGREDIENTE MARCA CONCENTRACION FORMULACION PRESENTACION EMPRESA NIVEL NEGOCIACION PRECIO_COP PRECIO_USD MODIFICADO USUARIO COMENTARIO)
 
   # each registro is a row on your spreadsheet
   @registros.each do |registro|
-    sheet.add_row [registro.producto.marca, registro.nivel, registro.negociacion, registro.precio]
+    sheet.add_row [
+    registro.municipio.departamento,registro.municipio.nombre_municipio,registro.producto.ingrediente,registro.producto.marca,registro.producto.concentracion,registro.producto.formulacion,registro.presentacion,registro.producto.empresa,registro.nivel,registro.negociacion,registro.precio,registro.usd,registro.updated_at,registro.user.name,registro.comentario]
   end
 end
