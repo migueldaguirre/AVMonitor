@@ -11,6 +11,7 @@ path = Rails.root.join('lib', 'seeds', "productos_ica.csv")
 
 puts "Reiniciando base de datos de productos..."
 Producto.destroy_all
+Municipio.destroy_all
 
 puts "Creando productos (Lista ICA)"
 
@@ -30,11 +31,18 @@ end
 puts "Productos creados en la base de datos"
 
 
+r = Municipio.new
+r.cod_departamento = "0"
+r.departamento = "No definido"
+r.cod_municipio = "0"
+r.nombre_municipio = "No definido"
+r.save!
+
 require 'soda/client'
 
 puts "Consultando API de Departamentos de Colombia"
 
-client = SODA::Client.new({:domain => "www.datos.gov.co", :app_token => "AUTH_DATOS_ABIERTOS"})
+client = SODA::Client.new({:domain => "www.datos.gov.co", :app_token => "yR8WhscADGPqnRlc043l1dxzX"})
 
 results = client.get("p95u-vi7k", :$limit => 5000)
 

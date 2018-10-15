@@ -13,7 +13,7 @@
 <%= f.label :producto_id %><br>
 <%= f.hidden_field :producto_id, value: "#{@producto_default}" %>
 <%= select_tag :prod_id, options_from_collection_for_select(
-      Producto.all.map { |pro| pro }.sort_by { |prosort| prosort.ica },:id, :marca), class: 'select2', as: :select, id: 'prod', include_blank: "#{Producto.find_by_id(@producto_default).marca}"%>
+      Producto.all.map { |pro| pro }.sort_by { |prosort| prosort.ica },:id, :marca), class: 'select2', as: :select, id: 'prod', include_blank: "#{Producto.find_by_id(@producto_default).marca}", style: "color:red"%>
       <br><br>
 
 
@@ -31,13 +31,15 @@
 
   <%= f.input :negociacion,prompt: "Selecione nivel de venta", require: true, collection: ["De contado", "A crédito"] %>
 
-  <%= f.input :precio %>
+  <%= f.input :precio, placeholder: "No incluir puntos ni símbolos" %>
 
 
   <%= hidden_field_tag :usd, @trm_default.dollar %>
 
   <%= f.input :comentario %>
-  <%= f.button :submit, "Enviar registro" %>
+
+  <%= f.button :submit, "Enviar registro", style: "background-color:#278F75; width: 100%; margin-bottom:40px; margin-top: 20px; font-weight: regular; color: white" %>
+
 
 <% end %>
 

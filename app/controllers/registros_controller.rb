@@ -26,8 +26,8 @@ class RegistrosController < ApplicationController
   def new
     @registro = Registro.new
     authorize @registro
-    @producto_default = "1"
-    @municipio_default = "1"
+    @producto_default = Producto.first.id
+    @municipio_default = Municipio.first.id
     @trm_default = Trm.last
 
   end
