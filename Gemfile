@@ -24,6 +24,9 @@ gem 'soda-ruby', :require => 'soda'
 gem "select2-rails"
 #----------------
 
+
+gem 'whenever', require: false
+
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
 gem 'font-awesome-sass', '~> 5.0.9'
@@ -38,6 +41,8 @@ gem 'jquery-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
+  gem "capistrano", "~> 3.10", require: false
+  gem "capistrano-rails", "~> 1.4", require: false
 end
 
 group :development, :test do

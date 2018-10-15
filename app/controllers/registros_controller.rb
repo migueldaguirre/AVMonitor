@@ -28,6 +28,8 @@ class RegistrosController < ApplicationController
     authorize @registro
     @producto_default = "1"
     @municipio_default = "1"
+    @trm_default = Trm.last
+
   end
 
   def create
@@ -37,6 +39,7 @@ class RegistrosController < ApplicationController
     authorize @registro
     @producto_default = "1"
     @municipio_default = "1"
+
 
     if @registro.save
       @munip_id_select2 = params[:munip_id]
@@ -54,6 +57,12 @@ class RegistrosController < ApplicationController
           @registro.producto = Producto.find_by_id(params[:prod_id])
       end
 
+      if params[:precio] == ""
+          params[:precio] = @registro.precio.to_f
+      end
+          @registro.usd = params[:usd].to_f
+          @registro.usd = @registro.usd * @registro.precio
+
       @registro.save
       redirect_to registro_path(@registro)
       flash[:notice] = "Se ha creado un nuevo registro."
@@ -67,6 +76,7 @@ class RegistrosController < ApplicationController
   def edit
       @producto_default = @registro.producto_id
       @municipio_default = @registro.municipio_id
+      @trm_default = Trm.last
   end
 
   def update
@@ -106,7 +116,7 @@ class RegistrosController < ApplicationController
   private
 
   def registro_params
-    params.require(:registro).permit(:producto_id, :municipio_id, :precio, :id, :negociacion, :nivel, :user_id, :presentacion, :comentario, :munip_id, :prod_id)
+    params.require(:registro).permit(:producto_id, :municipio_id, :precio, :id, :negociacion, :nivel, :user_id, :presentacion, :comentario, :munip_id, :prod_id, :usd)
   end
 
   def set_user
