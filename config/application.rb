@@ -20,6 +20,7 @@ module AVMonitor
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
     config.i18n.default_locale = :es
+    config.autoload_paths += %W(#{config.root}/lib)
     config.enable_dependency_loading = true
     config.eager_load_paths << Rails.root.join('lib')
 

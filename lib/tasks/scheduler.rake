@@ -1,7 +1,8 @@
+task :whatever  => :environment do
 desc "This task is called by the Heroku scheduler add-on"
 
-
-task :whatever do
+require 'rake'
+require 'Trm'
 require 'json'
 require 'open-uri'
 
