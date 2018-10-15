@@ -1,0 +1,3 @@
+class Trm < ApplicationRecord
+
+end

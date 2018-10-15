@@ -12,9 +12,9 @@
       <th class="hidden-xs">Ingr.</th>
       <th>Producto</th>
       <th>Dep.</th>
-      <th class="hidden-xs">Pres.</th>
+      <th>Pres.</th>
       <th>COP</th>
-      <th>USD</th>
+      <th class="hidden-xs">USD</th>
     </tr>
   </thead>
   <tbody>
@@ -28,7 +28,7 @@
       <td><%= Municipio.find(registro.municipio_id).departamento %></td>
       <td><%= registro.presentacion %></td>
       <td class="cur"><%= registro.precio %></td>
-      <td class="cur hidden-xs"><%= usd.to_d.truncate(2).to_f %></td>
+      <td class="cur hidden-xs"><%= (registro.usd.to_f * registro.precio).truncate(2) %></td>
     </tr>
     <% end %>
     <tr class="fold">
