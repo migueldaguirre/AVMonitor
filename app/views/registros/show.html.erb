@@ -31,7 +31,7 @@
 
 <tr><td>Presentación:</td><td class="dato"><%= @registro.presentacion %></td></tr>
 <tr><td>Precio (COP):</td><td class="dato">$<%= @registro.precio %></td></tr>
-<tr><td>Precio (USD):</td><td class="dato">$<%= @registro.usd %></td></tr>
+<tr><td>Precio (USD):</td><td class="dato">$<%= @registro.usd * @registro.precio %></td></tr>
 <tr><td>Negociación:</td><td class="dato"> <%= @registro.negociacion %></td></tr>
 <tr><td>Nivel:</td><td class="dato"> <%= @registro.nivel %></td></tr>
 </table>

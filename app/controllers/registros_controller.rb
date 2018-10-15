@@ -60,8 +60,9 @@ class RegistrosController < ApplicationController
       if params[:precio] == ""
           params[:precio] = @registro.precio.to_f
       end
-          @registro.usd = params[:usd].to_f
-          @registro.usd = @registro.usd * @registro.precio
+
+      @registro.usd = params[:usd].to_f
+
 
       @registro.save
       redirect_to registro_path(@registro)
