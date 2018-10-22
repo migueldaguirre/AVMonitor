@@ -42,7 +42,7 @@ require 'soda/client'
 
 puts "Consultando API de Departamentos de Colombia"
 
-client = SODA::Client.new({:domain => "www.datos.gov.co", :app_token => "yR8WhscADGPqnRlc043l1dxzX")
+client = SODA::Client.new({:domain => "www.datos.gov.co", :app_token => "yR8WhscADGPqnRlc043l1dxzX")}
 
 results = client.get("p95u-vi7k", :$limit => 5000)
 
