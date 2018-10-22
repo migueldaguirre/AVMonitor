@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-path = Rails.root.join('lib', 'seeds', "productos_ica.csv")
+path = Rails.root.join('lib', 'seeds', "productos_ica2.csv")
 
 
 puts "Reiniciando base de datos de productos..."
@@ -42,7 +42,7 @@ require 'soda/client'
 
 puts "Consultando API de Departamentos de Colombia"
 
-client = SODA::Client.new({:domain => "www.datos.gov.co", :app_token => "AUTH_DATOS_ABIERTOS"})
+client = SODA::Client.new({:domain => "www.datos.gov.co", :app_token => "AUTH_DATOS_ABIERTOS")
 
 results = client.get("p95u-vi7k", :$limit => 5000)
 
