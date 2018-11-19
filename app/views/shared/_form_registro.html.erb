@@ -13,7 +13,7 @@
 <%= f.label :producto_id %><br>
 <%= f.hidden_field :producto_id, value: "#{@producto_default}" %>
 <%= select_tag :prod_id, options_from_collection_for_select(
-      Producto.all.map { |pro| pro }.sort_by { |prosort| prosort.marca },:id, :marca), class: 'select2', as: :select, id: 'prod', include_blank: "#{Producto.find_by_id(@producto_default).marca}", style: "color:red"%>
+      Producto.all.map { |pro| pro }.sort_by { |prosort| prosort.marca },:id, :marca), class: 'select2', as: :select, id: 'prod', include_blank: "#{Producto.find_by_id(@producto_default).marca}"%>
       <br><br>
 
 
