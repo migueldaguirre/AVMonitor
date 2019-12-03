@@ -17,7 +17,8 @@
       <th class="hidden-xs">USD</th>
     </tr>
   </thead>
-  <tbody>
+<% if false %>
+<tbody>
     <% @registros.each do |registro| %>
     <% usd = registro.precio * 0.00033 %>
     <tr class="view">
@@ -39,4 +40,5 @@
       </td>
     </tr>
   </tbody>
-</table>
+</table>%
+<% end %>
