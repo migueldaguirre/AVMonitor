@@ -8,7 +8,6 @@ class RegistrosController < ApplicationController
 
   def index
     @registros =  Registro.all
-    @registros_tabla = Registro.last(400)
     @productos = Producto.all
     @municipios = Municipio.all
     authorize @registros
