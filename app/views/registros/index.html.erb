@@ -3,7 +3,6 @@
 
 <%= link_to "Exportar registros", registros_path(format: "xlsx"), class: "btn btn-primary btn-sm" if current_user.admin? %>
 
-
 <table class="fold-table table">
   <thead>
     <tr>
@@ -17,8 +16,8 @@
       <th class="hidden-xs">USD</th>
     </tr>
   </thead>
-<% if false %>
 <tbody>
+
     <% @registros.last(200).each do |registro| %>
     <% usd = registro.precio * 0.00033 %>
     <tr class="view">
