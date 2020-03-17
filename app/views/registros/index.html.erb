@@ -17,19 +17,18 @@
     </tr>
   </thead>
 <tbody>
-
-    <% @registros.last(200).each do |registro| %>
-    <% usd = registro.precio * 0.00033 %>
-    <tr class="view">
-      <td><%= link_to "Ver", registro_path(registro)%></td>
-      <td class="hidden-xs"><%= registro.updated_at.strftime("%d/%m/%Y") %></td>
-      <td class="hidden-xs"><%= Producto.find(registro.producto_id).ingrediente %></td>
-      <td><%= Producto.find(registro.producto_id).marca %></td>
-      <td><%= Municipio.find(registro.municipio_id).departamento %></td>
-      <td><%= registro.presentacion %></td>
-      <td class="cur"><%= registro.precio %></td>
-      <td class="cur hidden-xs"><%= (registro.usd.to_f * registro.precio).truncate(2) %></td>
-    </tr>
+    <% @registros.last(150).each do |registro| %>
+    <% usd = registro.precio * registro.usd %>
+      <tr class="view">
+        <td><%= link_to "Ver", registro_path(registro)%></td>
+        <td class="hidden-xs"><%= registro.updated_at.strftime("%d/%m/%Y") %></td>
+        <td class="hidden-xs"><%= Producto.find(registro.producto_id).ingrediente %></td>
+        <td><%= Producto.find(registro.producto_id).marca %></td>
+        <td><%= Municipio.find(registro.municipio_id).departamento %></td>
+        <td><%= registro.presentacion %></td>
+        <td class="cur"><%= registro.precio %></td>
+        <td class="cur hidden-xs"><%= (registro.usd.to_f * registro.precio).truncate(2) %></td>
+      </tr>
     <% end %>
     <tr class="fold">
       <td colspan="7">
@@ -38,6 +37,6 @@
         </div>
       </td>
     </tr>
-  </tbody>
-</table>%
-<% end %>
+</tbody>
+</table>
+<% #end %>
