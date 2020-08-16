@@ -18,7 +18,7 @@
   </thead>
 <tbody>
     <% @registros.last(150).each do |registro| %>
-    <% usd = registro.precio * registro.usd %>
+    <% #usd = registro.precio * 0.00033 %>
       <tr class="view">
         <td><%= link_to "Ver", registro_path(registro)%></td>
         <td class="hidden-xs"><%= registro.updated_at.strftime("%d/%m/%Y") %></td>
@@ -39,4 +39,4 @@
     </tr>
 </tbody>
 </table>
-<% #end %>
+<%#end %>
