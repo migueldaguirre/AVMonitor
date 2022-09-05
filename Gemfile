@@ -25,6 +25,7 @@ gem "select2-rails"
 #----------------
 
 
+
 gem 'whenever', require: false
 
 gem 'autoprefixer-rails'
@@ -43,6 +44,7 @@ group :development do
   gem 'web-console', '>= 3.3.0'
   gem "capistrano", "~> 3.10", require: false
   gem "capistrano-rails", "~> 1.4", require: false
+  gem 'rails-erd'
 end
 
 group :development, :test do
@@ -51,4 +53,5 @@ group :development, :test do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'appmap'
 end
