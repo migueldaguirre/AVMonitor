@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '3.3.7'
+ruby '2.7.0'
 
 
 gem 'devise'

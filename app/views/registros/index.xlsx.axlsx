@@ -11,4 +11,3 @@ wb.add_worksheet(name: "Registros") do |sheet|
   end
 end
 
-@registros.where("created_at >= :start_date AND created_at <= :end_date",{start_date:"2022-01-01", end_date: Time.now}).each
